@@ -1,0 +1,34 @@
+{
+  "common": {
+    "navbar": {
+      "home": "Home",
+      "services": "Services",
+      "about": "About Us",
+      "contactUs": "Contact",
+      "login": "Login"
+    },
+    "hero": {
+      "title": "Digital Solutions for Modern Business",
+      "subtitle": "We transform ideas into scalable realities through software development, automation, and intelligent design.",
+      "button": "Start a Project"
+    },
+    "services": {
+      "hero": {
+        "title": "Our Services",
+        "subtitle": "Focused on automation, efficiency, and growth."
+      },
+      "card1": {
+        "title": "Digital Development",
+        "description": "Custom web and mobile solutions."
+      },
+      "card2": {
+        "title": "AI Automation",
+        "description": "Virtual agents and process optimization."
+      },
+      "card3": {
+        "title": "Digital Design",
+        "description": "UX/UI and branding for a digital-first world."
+      }
+    }
+  }
+}

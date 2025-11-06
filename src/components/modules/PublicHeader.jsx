@@ -2,40 +2,35 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next-intl/link'; // CRÍTICO: Usar 'next-intl/link' para i18n
+import Link from 'next/link'; // <-- CORRECCIÓN AQUÍ
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import { Menu } from 'lucide-react'; // Icono para el menú móvil
+import { Menu } from 'lucide-react';
 
 export default function PublicHeader() {
   const t = useTranslations('common.navbar');
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
 
-  // Hook de Framer Motion para detectar el scroll
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setScrolled(latest > 50);
   });
 
   return (
     <motion.header
-      // Animación de fondo al hacer scroll
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         scrolled
           ? 'bg-background/80 backdrop-blur-sm border-b border-border'
           : 'bg-transparent'
       }`}
-      // Animación de entrada
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-4">
-        {/* Link del Logo (usa los logos de /public/) */}
         <Link href="/" className="flex items-center">
-          {/* Logo para Modo Claro (se oculta en dark) */}
           <Image
             src="/logoDarkArk-hrz.png"
             alt="Arknica Logo"
@@ -44,7 +39,6 @@ export default function PublicHeader() {
             priority
             className="dark:hidden"
           />
-          {/* Logo para Modo Oscuro (se muestra en dark) */}
           <Image
             src="/logoClaroArk-hrz.png"
             alt="Arknica Logo"
@@ -54,8 +48,6 @@ export default function PublicHeader() {
             className="hidden dark:block"
           />
         </Link>
-
-        {/* Navegación de Escritorio */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm font-medium text-foreground/80">
             <li>
@@ -79,8 +71,6 @@ export default function PublicHeader() {
             </li>
           </ul>
         </nav>
-
-        {/* Botón de Menú Móvil (Placeholder) */}
         <div className="md:hidden">
           <Button variant="ghost" size="icon">
             <Menu className="h-6 w-6" />

@@ -1,0 +1,34 @@
+{
+  "common": {
+    "navbar": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "about": "Nosotros",
+      "contactUs": "Contacto",
+      "login": "Ingresar"
+    },
+    "hero": {
+      "title": "Soluciones Digitales para Negocios Modernos",
+      "subtitle": "Transformamos ideas en realidades escalables a través de desarrollo de software, automatización y diseño inteligente.",
+      "button": "Iniciar un Proyecto"
+    },
+    "services": {
+      "hero": {
+        "title": "Nuestros Servicios",
+        "subtitle": "Enfocados en automatización, eficiencia y crecimiento."
+      },
+      "card1": {
+        "title": "Desarrollo Digital",
+        "description": "Soluciones web y móviles a medida."
+      },
+      "card2": {
+        "title": "Automatización con IA",
+        "description": "Agentes virtuales y optimización de procesos."
+      },
+      "card3": {
+        "title": "Diseño Digital",
+        "description": "UX/UI y branding para un mundo digital."
+      }
+    }
+  }
+}
