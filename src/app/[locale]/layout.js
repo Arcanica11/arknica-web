@@ -1,9 +1,9 @@
-// src/app/[locale]/layout.jsx
+// src/app/[locale]/layout.js
 import React from 'react';
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import './globals.css'; // ¡Importante! Carga nuestro CSS de Tailwind v4
+import './globals.css'; // Importa nuestro CSS de Tailwind v4
 
 // Configurar fuente 'Inter' (Cuerpo)
 const inter = Inter({
@@ -12,8 +12,11 @@ const inter = Inter({
   display: 'swap',
 });
 
-// (Podemos añadir metadata aquí más tarde)
-// export async function generateMetadata({ params: { locale } }) { ... }
+// (Metadata para SEO)
+export const metadata = {
+  title: "Arknica Tec",
+  description: "Transformamos ideas en realidades escalables a través de desarrollo de software, automatización y diseño inteligente.",
+};
 
 export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages();
@@ -28,7 +31,7 @@ export default async function RootLayout({ children, params: { locale } }) {
         />
       </head>
       <body className="flex flex-col min-h-full bg-background text-foreground">
-        {/* El proveedor de i18n es esencial para los Client Components */}
+        {/* El proveedor de i18n es esencial */}
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
         </NextIntlClientProvider>

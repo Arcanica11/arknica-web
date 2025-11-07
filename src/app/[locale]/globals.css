@@ -1,69 +1,9 @@
 /* src/app/[locale]/globals.css */
 
-/* 1. Importar Tailwind v4 */
+/* 1. Importar Tailwind */
 @import "tailwindcss";
 
-/* 2. Definir el tema (reemplaza tailwind.config.js) */
-@layer theme {
-  @config {
-    theme: {
-      extend: {
-        /* Fuentes (según tu layout anterior) */
-        fontFamily: {
-          sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-          display: ['Clash Display', 'sans-serif'],
-        }; /* <-- CORRECCIÓN: Punto y coma mandatorio aquí */
-
-        /* Tamaños de fuente (según tu config anterior) */
-        fontSize: {
-          'h1': ['6rem', { lineHeight: '1.1', fontWeight: '600' }],
-          'h2': ['4rem', { lineHeight: '1.2', fontWeight: '500' }],
-          'h3': ['2.5rem', { lineHeight: '1.3', fontWeight: '500' }],
-          'p': ['1.125rem', { lineHeight: '1.6', fontWeight: '400' }],
-          'button': ['1.125rem', { lineHeight: '1', fontWeight: '600' }],
-        }; /* <-- CORRECCIÓN: Punto y coma mandatorio aquí */
-
-        /* Colores (definidos como variables CSS) */
-        colors: {
-          border: 'rgb(var(--color-border))',
-          input: 'rgb(var(--color-input))',
-          ring: 'rgb(var(--color-ring))',
-          background: 'rgb(var(--color-background))',
-          foreground: 'rgb(var(--color-foreground))',
-          primary: {
-            DEFAULT: 'rgb(var(--color-primary))',
-            foreground: 'rgb(var(--color-primary-foreground))',
-          },
-          secondary: {
-            DEFAULT: 'rgb(var(--color-secondary))',
-            foreground: 'rgb(var(--color-secondary-foreground))',
-          },
-          destructive: {
-            DEFAULT: 'rgb(var(--color-destructive))',
-            foreground: 'rgb(var(--color-destructive-foreground))',
-          },
-          muted: {
-            DEFAULT: 'rgb(var(--color-muted))',
-            foreground: 'rgb(var(--color-muted-foreground))',
-          },
-          accent: {
-            DEFAULT: 'rgb(var(--color-accent))',
-            foreground: 'rgb(var(--color-accent-foreground))',
-          },
-        }; /* <-- CORRECCIÓN: Punto y coma mandatorio aquí */
-
-        /* Radius (según tu config anterior) */
-        borderRadius: {
-          lg: "var(--radius, 0.75rem)",
-          md: "calc(var(--radius, 0.75rem) - 2px)",
-          sm: "calc(var(--radius, 0.75rem) - 4px)",
-        }; /* <-- CORRECCIÓN: Punto y coma mandatorio aquí */
-      },
-    },
-  }
-}
-
-/* 3. Definiciones de variables de color (Modo Claro) */
+/* 2. Variables base */
 @layer base {
   :root {
     --color-primary: 0 102 204;
@@ -84,7 +24,6 @@
     --radius: 0.75rem;
   }
 
-  /* 4. Definiciones de Modo Oscuro */
   .dark {
     --color-primary: 0 127 255;
     --color-primary-foreground: 255 255 255;
@@ -100,10 +39,7 @@
     --color-muted: 27 27 27;
     --color-muted-foreground: 179 179 179;
   }
-}
 
-/* 5. Estilos Base (Normalización) */
-@layer base {
   html, body {
     height: 100%;
     margin: 0;
@@ -113,9 +49,9 @@
     font-family: var(--font-inter), system-ui, sans-serif;
     scroll-behavior: smooth;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Clash Display', var(--font-inter), sans-serif;
+    font-family: "Clash Display", var(--font-inter), sans-serif;
     color: rgb(var(--color-foreground));
     margin: 0;
   }

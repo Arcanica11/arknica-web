@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     "paths": {
       "@/*": ["./src/*"]
-    }
-  }
+    },
+    "types": ["node"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "resolveJsonModule": true
+  },
+  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
 }
