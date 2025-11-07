@@ -1,7 +1,7 @@
 // src/app/[locale]/layout.js
 import React from 'react'; // Asegúrate de que 'React' esté importado
 import { Inter } from 'next/font/google';
-import I18nProvider from '../../components/I18nProvider.jsx';
+import I18nProvider from '../components/I18nProvider.jsx';
 import './globals.css';
 
 const inter = Inter({
