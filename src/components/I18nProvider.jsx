@@ -1,12 +1,17 @@
 // src/components/I18nProvider.jsx
 import React from 'react';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
 
-// Este es un Componente de Servidor 'async'
 export default async function I18nProvider({ children, locale }) {
-  // Cargamos los mensajes aquí, de forma asíncrona
-  const messages = await getMessages();
+  
+  let messages;
+  try {
+    // Carga manual del archivo JSON
+    messages = (await import(`../messages/${locale}.json`)).default;
+  } catch (error) {
+    console.error("No se pudo cargar el archivo de idioma:", error);
+    messages = (await import(`../messages/es.json`)).default; // Fallback
+  }
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>

@@ -1,7 +1,7 @@
 // src/app/[locale]/layout.js
-import React from 'react';
+import React from 'react'; // Asegúrate de que 'React' esté importado
 import { Inter } from 'next/font/google';
-import I18nProvider from '../../components/I18nProvider.jsx'; // Importaremos este nuevo componente
+import I18nProvider from '../../components/I18nProvider.jsx';
 import './globals.css';
 
 const inter = Inter({
@@ -15,10 +15,14 @@ export const metadata = {
   description: "Transformamos ideas en realidades escalables...",
 };
 
-// --- LA CORRECCIÓN ---
-// 1. Quitamos 'async' de la función.
-export default function RootLayout({ children, params: { locale } }) {
-  // 2. Ahora podemos desestructurar 'locale' de forma segura.
+// --- LA CORRECCIÓN DEFINITIVA (Next 16 / React 19) ---
+
+// 1. Recibimos 'params' como una prop normal (que sabemos es una Promesa).
+export default function RootLayout({ children, params }) {
+  
+  // 2. Usamos 'React.use()' para "desenvolver" la Promesa y obtener el valor.
+  //    Esto es lo que el error nos pide que hagamos.
+  const { locale } = React.use(params);
 
   return (
     <html lang={locale} className={`${inter.variable} font-sans h-full`} suppressHydrationWarning>
@@ -29,7 +33,7 @@ export default function RootLayout({ children, params: { locale } }) {
         />
       </head>
       <body className="flex flex-col min-h-full bg-background text-foreground">
-        {/* 3. Movemos la lógica 'async' a un componente hijo */}
+        {/* 3. Pasamos el 'locale' ya resuelto al I18nProvider */}
         <I18nProvider locale={locale}>
           {children}
         </I18nProvider>
