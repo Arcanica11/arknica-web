@@ -19,6 +19,7 @@ const intlMiddleware = createIntlMiddleware({
 /**
  * Este es el middleware principal (proxy) que se ejecuta en cada petición.
  * ¡CORRECCIÓN! Usamos 'export default' como requiere Next.js 16.
+ * @param {import("next/server").NextRequest} req
  */
 export default async function middleware(req) {
   // 1. EJECUTAR I18N PRIMERO
